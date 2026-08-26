@@ -1,0 +1,12 @@
+==================================================
+MIAN MODEL FAKE NEWS DETECTION REPORT
+==================================================
+Test Accuracy:         0.943472
+Test Precision (Bin):  0.945726
+Test Recall (Bin):     0.997139
+Test F1-Score (Bin):   0.970752
+Test F1-Score (Macro): 0.565376
+Test F1-Score (Wtd):   0.922740
+Test AUC-ROC:          0.810947
+Inference Time (sec):  24.47
+==================================================

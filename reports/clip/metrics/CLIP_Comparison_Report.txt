@@ -1,0 +1,14 @@
+======================================================================
+MULTIMODAL FAKE NEWS DETECTION: CLIP VARIANTS COMPARISON
+======================================================================
+
+       Model  Accuracy  Precision  Recall  F1 Score    AUC
+    MetaCLIP    0.9408     0.9420  0.9986    0.9694 0.6097
+      SigLIP    0.9381     0.9466  0.9900    0.9678 0.6547
+    EVA-CLIP    0.9354     0.9465  0.9871    0.9664 0.6808
+    OpenCLIP    0.9341     0.9464  0.9857    0.9657 0.6939
+ OpenAI_CLIP    0.9327     0.9464  0.9843    0.9649 0.6828
+    JinaCLIP    0.9287     0.9474  0.9785    0.9627 0.6573
+DINOv2_XLM-R    0.9273     0.9485  0.9757    0.9619 0.6935
+
+Note: Evaluated under identical 70/15/15 stratified splits.

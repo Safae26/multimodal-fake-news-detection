@@ -1,0 +1,11 @@
+{
+  "name": "OpenCLIP",
+  "arch": "FakeNewsClassifier",
+  "path": "models/clip/OpenCLIP_classifier_best.pth",
+  "val_accuracy": 0.948856,
+  "val_f1": 0.973501,
+  "test_accuracy": 0.934051,
+  "test_f1": 0.965662,
+  "test_auc": 0.693897,
+  "num_classes": 2
+}

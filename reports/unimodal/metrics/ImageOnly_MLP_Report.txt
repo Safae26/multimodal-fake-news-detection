@@ -1,0 +1,19 @@
+============================================================
+ImageOnly_MLP UNIMODAL MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:   0.9462
+Precision:  0.9570
+Recall:     0.9871
+F1 Score:   0.9718
+ROC-AUC:    0.8718
+
+CONVERGENCE HISTORY
+-----------------------------------
+Best Val Accuracy: 0.9435
+Final Train Accuracy: 0.9994
+Final Val Accuracy:   0.9394
+Final Train Loss:     0.0023
+Final Val Loss:       2.2118

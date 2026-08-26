@@ -1,0 +1,24 @@
+============================================================
+SAFE FAKE NEWS DETECTION REPORT
+============================================================
+
+TEST METRICS
+-----------------------------------
+Accuracy:  0.9408
+Precision: 0.9408
+Recall:    1.0000
+F1 Score:  0.9695
+AUC:       0.5000
+
+CONFUSION MATRIX
+-----------------------------------
+TN=0  FP=44
+FN=0  TP=699
+
+CONVERGENCE
+-----------------------------------
+Best Val Acc:     0.9408
+Final Train Acc:  0.9405
+Final Val Acc:    0.9408
+Final Train Loss: 0.9350
+Final Val Loss:   23.2096

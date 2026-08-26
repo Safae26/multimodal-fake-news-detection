@@ -1,0 +1,51 @@
+# Virtual Environments
+venv/
+venv_ai/
+.env
+
+# Python caching & build
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Database files & Local State
+*.db
+*.sqlite
+app/*.json
+!app/package.json # conserve package.json si existant
+
+# Fichiers de session & Identifiants sensibles (Sécurité)
+*cookies.json
+*history.json
+*codes.json
+*inquiries.json
+
+# React Frontend
+react-frontend/node_modules/
+react-frontend/dist/
+
+# Large Datasets and media
+M4FC/
+data/
+
+# Large model weights (GitHub limit is 100MB)
+*.pt
+*.pth
+*.bin
+*.onnx
+*.pkl
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db

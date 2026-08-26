@@ -1,0 +1,12 @@
+============================================================
+TextOnly_LogisticRegression UNIMODAL MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:   0.3634
+Precision:  0.9913
+Recall:     0.3262
+F1 Score:   0.4909
+ROC-AUC:    0.7197
+

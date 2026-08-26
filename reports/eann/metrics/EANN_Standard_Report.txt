@@ -1,0 +1,27 @@
+============================================================
+EANN_Standard MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+1. PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:        0.9327
+Precision:       0.9710
+Recall:          0.9571
+F1 Score:        0.9640
+ROC-AUC:         0.8803
+Event Accuracy:  0.8816
+
+2. CONFUSION MATRIX
+-----------------------------------
+True Real, Predicted Real: 24
+True Real, Predicted Fake: 20
+True Fake, Predicted Real: 30
+True Fake, Predicted Fake: 669
+
+3. CONVERGENCE HISTORY
+-----------------------------------
+Best Val Accuracy: 0.9394
+Final Train Accuracy: 0.9570
+Final Val Accuracy:   0.9273
+Final Train Loss:     0.7162
+Final Val Loss:       1.4402

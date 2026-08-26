@@ -1,0 +1,14 @@
+{
+  "model_name": "Metadata Fusion (MLP)",
+  "strategy": "Metadata Fusion",
+  "classifier": "MLP",
+  "test_accuracy": 0.9582772543741588,
+  "test_precision": 0.9664804469273743,
+  "test_recall": 0.9899856938483548,
+  "test_f1": 0.9780918727915194,
+  "test_auc": 0.9179672259071401,
+  "uses_metadata": true,
+  "training_samples": 3462,
+  "validation_samples": 743,
+  "test_samples": 743
+}

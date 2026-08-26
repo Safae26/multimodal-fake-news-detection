@@ -1,0 +1,15 @@
+============================================================
+MetaCLIP MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+Epochs completed: 7
+Best Val F1:   0.969487
+Best Val Acc:  0.940781
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.940781
+  Precision: 0.941970
+  Recall:    0.998569
+  F1-Score:  0.969444
+  AUC:       0.609718

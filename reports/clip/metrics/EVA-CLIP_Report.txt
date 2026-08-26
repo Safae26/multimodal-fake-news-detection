@@ -1,0 +1,15 @@
+============================================================
+EVA-CLIP MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+Epochs completed: 9
+Best Val F1:   0.971389
+Best Val Acc:  0.944818
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.935397
+  Precision: 0.946502
+  Recall:    0.987124
+  F1-Score:  0.966387
+  AUC:       0.680843

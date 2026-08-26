@@ -1,0 +1,15 @@
+============================================================
+JinaCLIP MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+Epochs completed: 9
+Best Val F1:   0.970752
+Best Val Acc:  0.943472
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.928668
+  Precision: 0.947368
+  Recall:    0.978541
+  F1-Score:  0.962702
+  AUC:       0.657254

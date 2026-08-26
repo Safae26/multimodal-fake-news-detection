@@ -1,0 +1,27 @@
+============================================================
+EANN_ZeroShot MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+1. PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:        0.9220
+Precision:       0.9973
+Recall:          0.9243
+F1 Score:        0.9594
+ROC-AUC:         0.5099
+Event Accuracy:  0.0012
+
+2. CONFUSION MATRIX
+-----------------------------------
+True Real, Predicted Real: 0
+True Real, Predicted Fake: 2
+True Fake, Predicted Real: 61
+True Fake, Predicted Fake: 745
+
+3. CONVERGENCE HISTORY
+-----------------------------------
+Best Val Accuracy: 0.9050
+Final Train Accuracy: 0.9690
+Final Val Accuracy:   0.8986
+Final Train Loss:     0.6391
+Final Val Loss:       1.3767

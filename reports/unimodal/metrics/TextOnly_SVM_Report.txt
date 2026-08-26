@@ -1,0 +1,12 @@
+============================================================
+TextOnly_SVM UNIMODAL MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:   0.3701
+Precision:  0.9793
+Recall:     0.3376
+F1 Score:   0.5021
+ROC-AUC:    0.6158
+

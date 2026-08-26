@@ -1,0 +1,12 @@
+============================================================
+ImageOnly_RandomForest UNIMODAL MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:   0.9367
+Precision:  0.9405
+Recall:     0.9957
+F1 Score:   0.9673
+ROC-AUC:    0.8696
+

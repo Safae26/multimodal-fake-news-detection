@@ -1,0 +1,15 @@
+============================================================
+SigLIP MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+Epochs completed: 15
+Best Val F1:   0.970118
+Best Val Acc:  0.942127
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.938089
+  Precision: 0.946648
+  Recall:    0.989986
+  F1-Score:  0.967832
+  AUC:       0.654718

@@ -1,0 +1,15 @@
+============================================================
+OpenAI_CLIP MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+Epochs completed: 8
+Best Val F1:   0.971429
+Best Val Acc:  0.944818
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.932705
+  Precision: 0.946355
+  Recall:    0.984263
+  F1-Score:  0.964937
+  AUC:       0.682842

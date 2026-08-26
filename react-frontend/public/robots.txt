@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /analyzer
+Allow: /models
+Allow: /about
+Disallow: /admin
+Disallow: /profile
+
+Sitemap: https://fakenewshunter.org/sitemap.xml

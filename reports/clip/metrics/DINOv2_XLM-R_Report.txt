@@ -1,0 +1,15 @@
+============================================================
+DINOv2_XLM-R MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+Epochs completed: 6
+Best Val F1:   0.969359
+Best Val Acc:  0.940781
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.927322
+  Precision: 0.948540
+  Recall:    0.975680
+  F1-Score:  0.961918
+  AUC:       0.693539

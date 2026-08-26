@@ -1,0 +1,12 @@
+============================================================
+TextOnly_MLPClassifier UNIMODAL MODEL FAKE NEWS DETECTION REPORT
+============================================================
+
+PERFORMANCE METRICS (TEST SET)
+-----------------------------------
+Accuracy:   0.9367
+Precision:  0.9466
+Recall:     0.9886
+F1 Score:   0.9671
+ROC-AUC:    0.6789
+

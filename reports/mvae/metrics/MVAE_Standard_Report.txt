@@ -1,0 +1,15 @@
+==================================================
+MVAE MULTIMODAL FAKE NEWS DETECTION REPORT
+==================================================
+
+Epochs completed:  16
+Best Val F1:       0.970077
+Best Val Accuracy: 0.942127
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.939435
+  Precision: 0.943089
+  Recall:    0.995708
+  F1-Score:  0.968685
+  AUC:       0.867636

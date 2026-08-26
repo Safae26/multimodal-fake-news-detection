@@ -1,0 +1,15 @@
+==================================================
+VCLMMF MULTIMODAL FAKE NEWS DETECTION REPORT
+==================================================
+
+Epochs completed:  50
+Best Val F1:       0.971309
+Best Val Accuracy: 0.944818
+
+TEST SET RESULTS
+------------------------------
+  Accuracy:  0.928668
+  Precision: 0.944904
+  Recall:    0.981402
+  F1-Score:  0.962807
+  AUC:       0.595819
