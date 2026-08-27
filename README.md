@@ -58,7 +58,7 @@ graph TD
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/Safae26/multimodal-fake-news-detection.git
+git clone https://github.com/YOUR_USERNAME/multimodal-fake-news-detection.git
 cd multimodal-fake-news-detection
 ```
 
@@ -79,10 +79,10 @@ pip install -r requirements.txt
 ```
 
 #### 3. Run the FastAPI Backend Server
-Navigate to the `app` directory and start the server:
+Navigate to the `app` directory, configure the `.env` parameters if needed, and start the server:
 ```bash
 cd app
-python main.py
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 The backend server runs locally on **`http://localhost:8000`**.
 
@@ -116,8 +116,8 @@ This project implements and compares **16 neural network models** spanning 6 dis
 
 | Paradigm | Model Family | Key Architecture / Feature Fusion | Target Paper / Reference |
 | :--- | :--- | :--- | :--- |
-| **I. State of the Art (2025/2026)** | **LVLM (Vicuna/GLM4)** | Large Vision-Language Model Zero-Shot reasoning | *2025/2026 Baseline* |
-| | **MIAN** | Hierarchical Learning Module (HLM) + Co-Attention + Inverse Attention Mechanism | *IJCAI 2025* |
+| **I. State of the Art** | **LVLM (Vicuna/GLM4)** | Large Vision-Language Model Zero-Shot reasoning | *2025/2026 Baseline* |
+| | **MIAN** | Hierarchical Learning Module (HLM) + Co-Attention + Inverse Attention | *IJCAI 2025* |
 | | **VCLMMF** | Probabilistic VAE Alignment + InfoNCE Dual Contrastive Loss | *2025* |
 | **II. Foundational** | **CLIP** | Zero-Shot Cosine Similarity / Supervised MLP Classifier | Radford et al., *ICML 2021* |
 | | **BLIP** | Bootstrapping Language-Image Captioning Matching | Li et al., *ICML 2022* |
@@ -127,7 +127,7 @@ This project implements and compares **16 neural network models** spanning 6 dis
 | **IV. Attention** | **HMCAN** | Hierarchical Contextual Attention Network (Text/Image/Metadata) | *ACL* |
 | | **att-RNN** | Joint Visual-Textual Attention with Bi-GRU + VGG-19 | Jin et al., *IJCAI 2017* |
 | | **SpotFake** | BERT Text + VGG-19 Image Concatenation | Singhal et al., *IEEE MIPR 2019* |
-| | **SpotFake+** | XLM-RoBERTa + ResNet-50 Image Concatenation | Singhal et5 al., *AAAI 2020* |
+| | **SpotFake+** | XLM-RoBERTa + ResNet-50 Image Concatenation | Singhal et al., *AAAI 2020* |
 | **V. Variational & Fusion** | **MVAE** | Multimodal Variational Autoencoder (Generative Reconstruction) | Khattar et al., *WWW 2019* |
 | | **SAFE** | Similarity-Aware Fusion Engine (Cross-Modal Correlation) | Zhou et al., *PAKDD 2020* |
 | | **Traditional Fusion**| Early Fusion (Concatenation) / Late Fusion (Voting Classifier) | *Baseline* |
@@ -145,22 +145,26 @@ multimodal_fake_news_detection/
 │   ├── auth.py               # JWT authentication & password security
 │   ├── database.py           # SQLite connection & sessionmaker
 │   ├── crud.py               # Database CRUD helpers
+│   ├── models.py             # SQL Alchemy schemas (User, ClaimRecord)
+│   ├── schemas.py            # Pydantic schemas (predict & user)
+│   ├── predict.py            # Deep learning inference engine loader
+│   ├── twitter_stream.py     # Real-time ingestion stream (4chan, Reddit, Telegram)
 │   ├── Dockerfile            # Docker configuration for FastAPI
 │   └── requirements.txt      # Minimal CPU-optimized packages
 ├── react-frontend/           # React + Vite + Tailwind CSS Dashboard
 │   ├── src/
 │   │   ├── pages/            # View pages (Home, Models, History, Analyzer, About)
-│   │   └── components/       # Reusable components (3D Canvas, Charts, Navbar)
+│   │   ├── components/       # Reusable components (Charts, Navbar, Stream)
+│   │   └── context/          # State management context (Language, Alerts)
 │   ├── Dockerfile            # Multi-stage build Dockerfile
 │   └── nginx.conf            # Nginx routing configuration
-├── src/                      # Clean Modular Production ML Pipeline
-│   ├── data_loader.py        # M4FC Custom Dataset & preprocessing pipeline
-│   ├── models.py             # Multimodal Early Fusion architecture model
-│   └── train.py              # Optimisation and hyperparameter training script
+├── src/                      # Modular Production ML Pipeline
+│   ├── data_pipeline.py      # M4FC custom dataloaders & padding
+│   └── model_registry.py     # Registry for model weights loading
 ├── notebooks/                # PyTorch Implementation Jupyter Notebooks
-├── data/                     # M4FC Datasets and Extracted Tensor Features
-├── models/                   # Saved PyTorch checkpoint weights (.pt, .pth)
-├── reports/                  # Evaluation reports (precision, recall, training curves)
+├── M4FC/                     # Official dataset submodule / clone
+├── figures/                  # Static assets & model architecture diagrams
+├── reports/                  # Generated evaluation reports (classification report text & figures)
 ├── docker-compose.yml        # Orchestration build file for full stack
 └── requirements.txt          # Global packages (including GPU wheels)
 ```
@@ -170,4 +174,3 @@ multimodal_fake_news_detection/
 ## 📄 License
 
 This project is licensed under a custom **Non-Commercial Software License** (Exclusive Commercial Rights retained by Safae Eraji). It is free for personal, educational, and academic research purposes, but commercial use by any third party is strictly prohibited. Refer to the [LICENSE](LICENSE) file for the full terms and conditions.
-
