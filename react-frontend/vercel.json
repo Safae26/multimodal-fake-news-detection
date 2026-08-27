@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/ws/(.*)",
+      "destination": "https://YOUR-BACKEND-API-URL/api/ws/$1"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "https://YOUR-BACKEND-API-URL/api/$1"
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": "https://YOUR-BACKEND-API-URL/uploads/$1"
+    }
+  ]
+}
