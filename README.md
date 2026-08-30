@@ -17,25 +17,25 @@ graph TD
     classDef ml fill:#faf5ff,stroke:#a855f7,stroke-width:2px,color:#3b0764;
     
     %% Client Tier
-    subgraph Client Tier (React Frontend)
+    subgraph client["Client Tier (React Frontend)"]
         User[Web User] -->|HTTP Requests| SPA[React App / Vite]
         SPA -->|Language Config| Lang[LanguageContext]
     end
 
     %% Application Tier
-    subgraph Application Tier (FastAPI Backend)
+    subgraph app_tier["Application Tier (FastAPI Backend)"]
         SPA -->|API Requests / Auth| Main[app/main.py]
         Main -->|User Session / JWT| Auth[app/auth.py]
         Main -->|CRUD Ops| CRUD[app/crud.py]
     end
 
     %% Database Tier
-    subgraph Database Tier (SQLite)
+    subgraph db_tier["Database Tier (SQLite)"]
         CRUD -->|SQLAlchemy ORM| DB[(multimodal_fake_news_detection_system.db)]
     end
 
     %% Machine Learning Core
-    subgraph ML Core (PyTorch & Hugging Face)
+    subgraph ml_tier["ML Core (PyTorch & Hugging Face)"]
         Main -->|Raw Inputs| ML[app/predict.py]
         ML -->|Zero-Shot Infer| CLIP[Original CLIP]
         ML -->|Multimodal Co-Attention| Champion[EANN / MIAN / VCLMMF]
