@@ -184,6 +184,8 @@ app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
 SECRET_KEY = "YOUR_SUPER_SECRET_KEY_HERE"  # Keep this production safe!
 ALGORITHM = "HS256"
+PUBLIC_API_URL = os.getenv("PUBLIC_API_URL", "https://dodge-thirsty-clamp.ngrok-free.dev")
+PUBLIC_FRONTEND_URL = os.getenv("PUBLIC_FRONTEND_URL", "https://multimodal-fake-news-detection-pearl.vercel.app")
 security = HTTPBearer(auto_error=False)
 
 # --- Database Connection Lifecycles ---
@@ -401,20 +403,20 @@ async def api_verify_email(token: str):
         update_query = users.update().where(users.c.email == email).values(is_verified=True)
         await database.execute(update_query)
         
-        html_success = """
+        html_success = f"""
         <!DOCTYPE html>
         <html>
         <head>
             <title>Email Verified — FakeNewsHunter</title>
             <meta charset="utf-8">
             <style>
-                body { background-color: #0f172a; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-                .card { background-color: #1e293b; border: 1px solid #334155; border-radius: 24px; padding: 44px; text-align: center; max-width: 440px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-                .icon { width: 64px; height: 64px; background: rgba(16, 185, 129, 0.15); border: 2px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; color: #10b981; font-size: 32px; font-weight: bold; }
-                h1 { font-size: 22px; margin: 0 0 10px 0; font-weight: 800; color: #ffffff; }
-                p { color: #94a3b8; font-size: 14px; margin: 0 0 28px 0; line-height: 1.6; }
-                a { display: inline-block; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 14px 32px; border-radius: 14px; font-weight: 700; font-size: 14px; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4); }
-                a:hover { opacity: 0.95; }
+                body {{ background-color: #0f172a; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }}
+                .card {{ background-color: #1e293b; border: 1px solid #334155; border-radius: 24px; padding: 44px; text-align: center; max-width: 440px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }}
+                .icon {{ width: 64px; height: 64px; background: rgba(16, 185, 129, 0.15); border: 2px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; color: #10b981; font-size: 32px; font-weight: bold; }}
+                h1 {{ font-size: 22px; margin: 0 0 10px 0; font-weight: 800; color: #ffffff; }}
+                p {{ color: #94a3b8; font-size: 14px; margin: 0 0 28px 0; line-height: 1.6; }}
+                a {{ display: inline-block; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 14px 32px; border-radius: 14px; font-weight: 700; font-size: 14px; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4); }}
+                a:hover {{ opacity: 0.95; }}
             </style>
         </head>
         <body>
@@ -422,7 +424,7 @@ async def api_verify_email(token: str):
                 <div class="icon">✓</div>
                 <h1>Email Verified Successfully!</h1>
                 <p>Your FakeNewsHunter account email has been verified. You can now sign in and start detecting fake news.</p>
-                <a href="http://localhost:3000/login?verified=true">Continue to Sign In</a>
+                <a href="{PUBLIC_FRONTEND_URL}/login?verified=true">Continue to Sign In</a>
             </div>
         </body>
         </html>
@@ -449,7 +451,7 @@ async def api_verify_email(token: str):
                 <div class="icon">✕</div>
                 <h1>Verification Link Invalid</h1>
                 <p>This verification link is invalid or has expired. Please log in or request a new code.</p>
-                <a href="http://localhost:3000/login">Return to Application</a>
+                <a href="{PUBLIC_FRONTEND_URL}/login">Return to Application</a>
             </div>
         </body>
         </html>
@@ -517,7 +519,7 @@ async def api_auth_register(req: RegisterRequest):
         if conf.MAIL_USERNAME != "your_email@gmail.com":
             try:
                 verification_token = jwt.encode({"sub": req.email, "type": "verification"}, SECRET_KEY, algorithm=ALGORITHM)
-                verification_link = f"http://127.0.0.1:8000/api/verify-email?token={verification_token}"
+                verification_link = f"{PUBLIC_API_URL}/api/verify-email?token={verification_token}"
                 
                 html_content = create_html_email(
                     title="Welcome to FakeNewsHunter!",
