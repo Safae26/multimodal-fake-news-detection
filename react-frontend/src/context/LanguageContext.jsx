@@ -462,7 +462,23 @@ export const translations = {
     regLastName: "الاسم العائلي",
     regPassword: "كلمة المرور",
     regConfirmPassword: "تأكيد كلمة المرور",
-    regSubmit: "إنشاء الحساب"
+    regSubmit: "إنشاء الحساب",
+
+    // About Page (Official Names & Accurate Translation)
+    aboutAcademicInitiative: "مشروع بحث أكاديمي",
+    aboutHeroTitle: "مكافحة التضليل الإعلامي",
+    aboutHeroTitleHighlight: "بالذكاء الاصطناعي متعدد الوسائط",
+    aboutHeroSubtitle: "التحقق الفوري من صحة الأخبار عبر فحص النص والصورة باستخدام أحدث نماذج الذكاء الاصطناعي.",
+    aboutStoryTitle: "من نحن وقصتنا",
+    aboutStoryP1: "في عصر التسارع الرقمي ووسائل التواصل الاجتماعي، أصبحت الحدود بين الحقيقة والتضليل أكثر هشاشة من أي وقت مضى. لم يعد الخبر الزائف يعتمد على النصوص فقط، بل أصبح يدمج بين النصوص والصور ومقاطع الفيديو لإضفاء المصداقية. الشبكات الأحادية التقليدية تفشل في كشف التناقضات الدقيقة بين الوسائط المتعددة.",
+    aboutStoryP2: "ولدت منصة FakeNewsHunter من هذه الحاجة الملحة. تم تطويرها كأطروحة لنيل شهادة الماستر بكلية العلوم، جامعة مولاي إسماعيل بمكناس، المغرب، من طرف الطالبة صفاء الراجي تحت إشراف الأستاذة الدريسية العلالي. تقوم المنصة على قناعة واحدة: الحقيقة تتطلب رؤية الصورة كاملة من خلال تحليل النص والصورة معاً لإظهار التناقضات الخفية.",
+    aboutStoryP3: "تجمع منصة FakeNewsHunter بين معالجة اللغات الطبيعية (NLP) والرؤية الحاسوبية (Computer Vision) والتعلم العميق في محرك واحد لتوفير أداة سهلة ومتاحة للجميع للتحقق من صحة الأخبار.",
+    aboutTeamTitle: "فريق العمل والمشرفون",
+    aboutSafaeRole: "طالبة ماستر 2 في الذكاء الاصطناعي وعلوم البيانات",
+    aboutSafaeBio: "طالبة ماستر بكلية العلوم، جامعة مولاي إسماعيل، مكناس. قامت بتصميم وبناء خط معالجة التعلم العميق متعدد الوسائط، ونماذج استخراج الميزات، والمهندسة الكاملة للمنصة.",
+    aboutSupervisorRole: "مشرفة الأطروحة والمستشارة الأكاديمية",
+    aboutSupervisorBio: "أستاذة التعليم العالي وباحثة في الذكاء الاصطناعي بكلية العلوم، جامعة مولاي إسماعيل، مكناس. متخصصة في معالجة اللغات الطبيعية والتعلم الآلي. قامت بالإشراف الأكاديمي والتوجيه العلمي الكامل لمشروع الأطروحة.",
+    aboutObjectivesTitle: "أهداف البحث العلمي"
   }
 };
 
@@ -478,7 +494,7 @@ export function LanguageProvider({ children }) {
   });
 
   const [dynamicTranslations, setDynamicTranslations] = useState(() => {
-    const cached = localStorage.getItem('app_gemini_dynamic_translations_v41');
+    const cached = localStorage.getItem('app_gemini_dynamic_translations_v42');
     return cached ? JSON.parse(cached) : {};
   });
 
