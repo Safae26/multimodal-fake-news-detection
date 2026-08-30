@@ -120,7 +120,7 @@ export default function SocialStream() {
             protocol = 'ws:';
         }
 
-        const wsUrl = `${protocol}//${wsHost}/api/ws/twitter-stream?query=${encodeURIComponent(searchQuery)}`;
+        const wsUrl = `${protocol}//${wsHost}/api/ws/social-stream?query=${encodeURIComponent(searchQuery)}`;
 
         wsRef.current = new WebSocket(wsUrl);
 

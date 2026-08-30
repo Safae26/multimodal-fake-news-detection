@@ -1690,7 +1690,7 @@ async def api_predict(
             detail=f"Neural execution failure: Unable to finalize weights processing. Details: {str(e)}"
         )
 
-@app.websocket("/api/ws/twitter-stream")
+@app.websocket("/api/ws/social-stream")
 async def websocket_twitter_stream(websocket: WebSocket):
     await websocket.accept()
     print("📡 Client connected to News Stream")
