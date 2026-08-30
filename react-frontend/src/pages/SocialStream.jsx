@@ -109,8 +109,18 @@ export default function SocialStream() {
             reconnectTimeoutRef.current = null;
         }
 
-        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsUrl = `${protocol}//${window.location.host}/api/ws/twitter-stream?query=${encodeURIComponent(searchQuery)}`;
+        let wsHost = window.location.host;
+        let protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+
+        if (wsHost.includes('vercel.app')) {
+            wsHost = 'dodge-thirsty-clamp.ngrok-free.dev';
+            protocol = 'wss:';
+        } else if (wsHost.includes('localhost') || wsHost.includes('127.0.0.1')) {
+            wsHost = '127.0.0.1:7860';
+            protocol = 'ws:';
+        }
+
+        const wsUrl = `${protocol}//${wsHost}/api/ws/twitter-stream?query=${encodeURIComponent(searchQuery)}`;
 
         wsRef.current = new WebSocket(wsUrl);
 
