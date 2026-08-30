@@ -5,7 +5,7 @@ from jose import jwt
 import random
 from pydantic import BaseModel
 from fastapi import WebSocket, WebSocketDisconnect
-from twitter_stream import stream_manager
+from social_stream import stream_manager
 import asyncio
 from datetime import datetime
 
