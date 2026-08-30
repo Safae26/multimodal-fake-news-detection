@@ -54,7 +54,7 @@ graph TD
 
 ## 📋 Setup & Deployment Guide
 
-### Option A: Local Development Setup (Manual)
+### Local Development Setup
 
 #### 1. Clone the Repository
 ```bash
@@ -97,19 +97,6 @@ The frontend application will start on **`http://localhost:3000`**.
 
 ---
 
-### Option B: Docker Container Deployment (Recommended for Reproducibility)
-
-The platform is fully containerized. You can build and run both the React SPA and FastAPI backend instantly using Docker Compose:
-
-```bash
-# Build and launch all containers
-docker-compose up --build
-```
-- **React Frontend:** Access at **`http://localhost:3000`**
-- **FastAPI API Documentation (Swagger):** Access at **`http://localhost:8000/docs`**
-
----
-
 ## 🧠 Benchmarked Model Architectures
 
 This project implements and compares **16 neural network models** spanning 6 distinct paradigms:
@@ -138,7 +125,7 @@ This project implements and compares **16 neural network models** spanning 6 dis
 
 ## 📂 Project Structure
 
-```
+```text
 multimodal_fake_news_detection/
 ├── app/                      # FastAPI Backend Server
 │   ├── main.py               # Main Entrypoint (API endpoints & server config)
@@ -148,7 +135,9 @@ multimodal_fake_news_detection/
 │   ├── models.py             # SQL Alchemy schemas (User, ClaimRecord)
 │   ├── schemas.py            # Pydantic schemas (predict & user)
 │   ├── predict.py            # Deep learning inference engine loader
-│   ├── twitter_stream.py     # Real-time ingestion stream (4chan, Reddit, Telegram)
+│   ├── twitter_stream.py     # Real-time ingestion stream (Twitter API)
+│   ├── create_admin.py       # Helper script to create admin user
+│   ├── reset_admin.py        # Helper script to reset admin password
 │   ├── Dockerfile            # Docker configuration for FastAPI
 │   └── requirements.txt      # Minimal CPU-optimized packages
 ├── react-frontend/           # React + Vite + Tailwind CSS Dashboard
@@ -156,17 +145,19 @@ multimodal_fake_news_detection/
 │   │   ├── pages/            # View pages (Home, Models, History, Analyzer, About)
 │   │   ├── components/       # Reusable components (Charts, Navbar, Stream)
 │   │   └── context/          # State management context (Language, Alerts)
-│   ├── Dockerfile            # Multi-stage build Dockerfile
-│   └── nginx.conf            # Nginx routing configuration
+│   └── vercel.json           # Vercel deployment configuration
 ├── src/                      # Modular Production ML Pipeline
 │   ├── data_pipeline.py      # M4FC custom dataloaders & padding
 │   └── model_registry.py     # Registry for model weights loading
+├── data/                     # Data storage directory
+├── models/                   # Pre-trained models and weights directory
 ├── notebooks/                # PyTorch Implementation Jupyter Notebooks
 ├── M4FC/                     # Official dataset submodule / clone
 ├── figures/                  # Static assets & model architecture diagrams
 ├── reports/                  # Generated evaluation reports (classification report text & figures)
-├── docker-compose.yml        # Orchestration build file for full stack
-└── requirements.txt          # Global packages (including GPU wheels)
+├── download_with_retry.py    # Script for downloading dependencies/data
+├── requirements.txt          # Global packages (including GPU wheels)
+└── requirements_data.txt     # Data-specific Python dependencies
 ```
 
 ---
