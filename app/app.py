@@ -1,7 +1,25 @@
 import uvicorn
-from main import app
+import gradio as gr
+import spaces
+from main import app as fastapi_app
 
-# Ce script sert de point d'entrée pour Hugging Face Spaces (SDK Gradio)
-# Il permet de faire tourner l'API FastAPI gratuitement sans Docker.
+# Hugging Face ZeroGPU REQUIRES a Gradio Interface bound to a @spaces.GPU function
+@spaces.GPU
+def dummy_gpu_fn(text):
+    return "System is running. API is available at /docs"
+
+# Create a minimal Gradio UI
+demo = gr.Interface(
+    fn=dummy_gpu_fn,
+    inputs="text",
+    outputs="text",
+    title="Backend API Status"
+)
+
+# Mount the Gradio UI at /ui so it doesn't break our API routes
+app = gr.mount_gradio_app(fastapi_app, demo, path="/ui")
+
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=7860)
+    # Hugging Face ZeroGPU wrapper automatically starts the server.
+    # Running uvicorn here causes an [Errno 98] address already in use error.
+    pass
