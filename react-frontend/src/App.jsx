@@ -169,7 +169,7 @@ export default function App() {
               />
               <Route
                 path="/analyzer"
-                element={user ? (user.is_admin ? <Navigate to="/admin" replace /> : <Analyzer token={token} user={user} />) : <Navigate to="/login" replace />}
+                element={user && user.is_admin ? <Navigate to="/admin" replace /> : <Analyzer token={token} user={user} />}
               />
               <Route
                 path="/dossiers"
@@ -181,7 +181,7 @@ export default function App() {
               />
               <Route
                 path="/stream"
-                element={user ? (user.is_admin ? <Navigate to="/admin" replace /> : <SocialStream />) : <Navigate to="/login" replace />}
+                element={user && user.is_admin ? <Navigate to="/admin" replace /> : <SocialStream />}
               />
               <Route
                 path="/login"

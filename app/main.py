@@ -267,6 +267,28 @@ async def get_current_user_from_token(
     except Exception:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
+async def get_optional_current_user(
+    request: Request,
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(security)
+):
+    token = None
+    if credentials:
+        token = credentials.credentials
+    if not token:
+        token = request.cookies.get("access_token")
+    if not token:
+        return {"id": "guest", "username": "guest", "email": "guest@fakenewshunter.ai", "is_admin": False}
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username:
+            user = await asyncio.to_thread(fetch_user_by_username, username)
+            if user:
+                return user
+    except Exception:
+        pass
+    return {"id": "guest", "username": "guest", "email": "guest@fakenewshunter.ai", "is_admin": False}
+
 # --- Pydantic Schemas for JSON Authentication ---
 
 class RegisterRequest(BaseModel):
@@ -924,7 +946,7 @@ async def api_translate_dictionary(req: TranslateDictRequest):
         raise HTTPException(status_code=500, detail=f"Dictionary translation failed: {str(e)}")
 
 @app.post("/api/extract-url")
-async def extract_url(req: UrlExtractRequest, current_user=Depends(get_current_user_from_token)):
+async def extract_url(req: UrlExtractRequest, current_user=Depends(get_optional_current_user)):
     url = req.url.strip()
     if not url.startswith("http"):
         raise HTTPException(status_code=400, detail="Invalid URL format. Must start with http:// or https://")
@@ -1438,7 +1460,7 @@ async def api_predict(
     language: Optional[str] = Form(None),
     domain: Optional[str] = Form(None),
     source_name: Optional[str] = Form(None),
-    current_user = Depends(get_current_user_from_token)
+    current_user = Depends(get_optional_current_user)
 ):
     if not text and not image and not image_url:
         raise HTTPException(

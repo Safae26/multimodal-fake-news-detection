@@ -279,7 +279,7 @@ export default function Analyzer({ token, user }) {
       const apiPromise = fetch('/api/predict', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+          ...(token ? { 'Authorization': `Bearer ${token}` } : {})
         },
         body: formData,
       });
