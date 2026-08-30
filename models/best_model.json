@@ -1,0 +1,11 @@
+{
+    "name": "HMCAN (Hierarchical Multi-modal Contextual Attention Network)",
+    "path": "models/hmcan/best_hmcan_model.pth",
+    "arch": "HMCAN",
+    "img_dim": 768,
+    "text_dim": 768,
+    "num_classes": 2,
+    "val_accuracy": 0.9089,
+    "f1_score": 0.9686,
+    "use_metadata": true
+}
