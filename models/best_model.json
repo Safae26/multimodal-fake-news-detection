@@ -1,11 +1,11 @@
 {
-    "name": "HMCAN (Hierarchical Multi-modal Contextual Attention Network)",
-    "path": "models/hmcan/best_hmcan_model.pth",
-    "arch": "HMCAN",
+    "name": "MIAN (Multimodal Interaction and Attention Network)",
+    "path": "models/mian/best_mian_model.pth",
+    "arch": "MIAN",
     "img_dim": 768,
     "text_dim": 768,
     "num_classes": 2,
-    "val_accuracy": 0.9089,
-    "f1_score": 0.9686,
+    "val_accuracy": 0.95,
+    "f1_score": 0.9708,
     "use_metadata": true
 }
