@@ -2,15 +2,15 @@
   "rewrites": [
     {
       "source": "/api/ws/(.*)",
-      "destination": "https://YOUR-BACKEND-API-URL/api/ws/$1"
+      "destination": "https://dodge-thirsty-clamp.ngrok-free.dev/api/ws/$1"
     },
     {
       "source": "/api/(.*)",
-      "destination": "https://YOUR-BACKEND-API-URL/api/$1"
+      "destination": "https://dodge-thirsty-clamp.ngrok-free.dev/api/$1"
     },
     {
       "source": "/uploads/(.*)",
-      "destination": "https://YOUR-BACKEND-API-URL/uploads/$1"
+      "destination": "https://dodge-thirsty-clamp.ngrok-free.dev/uploads/$1"
     }
   ]
 }

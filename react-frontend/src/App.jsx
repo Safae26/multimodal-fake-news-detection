@@ -16,6 +16,20 @@ import NotFound from './pages/NotFound';
 import SocialStream from './pages/SocialStream';
 import CookieConsent from './components/CookieConsent';
 
+// Automatically append ngrok-skip-browser-warning header to all fetch API calls
+if (typeof window !== 'undefined' && !window.__fetch_patched__) {
+  window.__fetch_patched__ = true;
+  const originalFetch = window.fetch;
+  window.fetch = function (url, options = {}) {
+    options = options || {};
+    options.headers = {
+      'ngrok-skip-browser-warning': 'true',
+      ...(options.headers || {})
+    };
+    return originalFetch(url, options);
+  };
+}
+
 export default function App() {
   const [showFloatLang, setShowFloatLang] = useState(false);
   const { language, setLanguage, t } = useLanguage();
