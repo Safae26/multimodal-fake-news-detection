@@ -97,6 +97,78 @@ The frontend application will start on **`http://localhost:3000`**.
 
 ---
 
+## ⚡ Live Demo, Quickstart & Example Outputs
+
+- **Live Demo (local):**
+  - Frontend: `http://localhost:3000`
+  - Backend docs: `http://localhost:8000/docs`
+- **Quickstart:** clone the repository, install Python + Node dependencies, then run backend and frontend servers as shown above.
+- **Example outputs:** benchmark figures and reports are available under:
+  - `reports/clip/figures/clip_comparison_summary.png`
+  - `reports/mian/figures/mian_confusion_matrix.png`
+  - `reports/vclmmf/figures/roc_curve.png`
+  - `reports/*/metrics/*.txt`
+
+---
+
+## ❤️ Support This Project
+
+If this project helps your research, coursework, or product exploration, please consider sponsoring it.
+
+### Sponsor Links
+
+- **GitHub Sponsors:** https://github.com/sponsors/Safae26
+- **Patreon:** https://www.patreon.com/safaeeraji
+- **OpenCollective:** https://opencollective.com/multimodal-fake-news-detection
+- **Buy Me a Coffee:** https://buymeacoffee.com/safaeeraji
+
+### Why Sponsorship Matters
+
+Sponsorship directly supports:
+- M4FC dataset acquisition, refresh, and curation
+- GPU/compute costs for training and benchmarking
+- Hosting and infrastructure for API + frontend availability
+- Ongoing model maintenance, evaluation, and documentation quality
+
+---
+
+## 🧭 Public Roadmap (Sponsor-Unlocked Priorities)
+
+- [ ] Add expanded multilingual benchmarks and error analysis across all supported languages
+- [ ] Publish reproducible benchmark pipelines with standardized experiment tracking
+- [ ] Release model cards and deployment profiles for edge and cloud inference
+- [ ] Improve explainability outputs (cross-modal evidence attribution + uncertainty views)
+- [ ] Add one-click deployment guides (Docker + Vercel + API hosting options)
+- [ ] Expand contributor onboarding docs and starter issues for research collaboration
+
+---
+
+## 🤝 Trust, Contribution & Community
+
+- Read contribution guidelines: **[CONTRIBUTING.md](CONTRIBUTING.md)**
+- Open issues for bugs, research questions, and feature requests
+- Submit peer feedback through the app (`About > User Reviews`)
+- Follow and share progress updates on:
+  - GitHub: https://github.com/Safae26
+  - LinkedIn: https://www.linkedin.com/in/safae-eraji-230083270
+  - Relevant communities: Reddit ML forums, Hugging Face community spaces, and OSS AI groups
+
+---
+
+## 🌟 Sponsor Recognition
+
+Sponsors are thanked publicly in:
+- README sponsor acknowledgments
+- Release notes
+- Milestone/update announcements
+
+Optional sponsor perks can include:
+- Early access to benchmark summaries
+- Priority consideration for feature requests
+- Public acknowledgments in project updates
+
+---
+
 ## 🧠 Benchmarked Model Architectures
 
 This project implements and compares **16 neural network models** spanning 6 distinct paradigms:

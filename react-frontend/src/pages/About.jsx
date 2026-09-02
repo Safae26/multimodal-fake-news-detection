@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { MapPin, Globe, CheckCircle, Github, Linkedin, MessageSquare, ShieldAlert, Star, Send, Scale, Lock, FileText, UserCheck, Database, Cookie, FlaskConical, Trash2, GraduationCap, Loader } from 'lucide-react';
+import { MapPin, Globe, CheckCircle, Github, Linkedin, MessageSquare, ShieldAlert, Star, Send, Lock, Trash2, GraduationCap, Loader, ExternalLink } from 'lucide-react';
 import AlertBox from '../components/AlertBox';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -45,6 +45,20 @@ export default function About({ user }) {
   const [contactMessage, setContactMessage] = useState('');
   const [contactSuccess, setContactSuccess] = useState('');
   const [isSubmittingContact, setIsSubmittingContact] = useState(false);
+
+  const sponsorLinks = [
+    { label: 'GitHub Sponsors', href: 'https://github.com/sponsors/Safae26' },
+    { label: 'Patreon', href: 'https://www.patreon.com/safaeeraji' },
+    { label: 'OpenCollective', href: 'https://opencollective.com/multimodal-fake-news-detection' },
+    { label: 'Buy Me a Coffee', href: 'https://buymeacoffee.com/safaeeraji' }
+  ];
+
+  const roadmapItems = [
+    t('aboutRoadmapItem1'),
+    t('aboutRoadmapItem2'),
+    t('aboutRoadmapItem3'),
+    t('aboutRoadmapItem4')
+  ];
 
   useEffect(() => {
     if (user) {
@@ -267,6 +281,82 @@ export default function About({ user }) {
                     </a>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm text-start space-y-4">
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white">
+                {t('aboutSupportTitle')}
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-350 leading-relaxed">
+                {t('aboutSupportSubtitle')}
+              </p>
+
+              <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-350">
+                <li>• {t('aboutImpactItem1')}</li>
+                <li>• {t('aboutImpactItem2')}</li>
+                <li>• {t('aboutImpactItem3')}</li>
+                <li>• {t('aboutImpactItem4')}</li>
+              </ul>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {sponsorLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 bg-indigo-50/60 dark:bg-indigo-950/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors text-xs font-bold"
+                  >
+                    {link.label}
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <Link
+                  to="/analyzer"
+                  className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors"
+                >
+                  {t('aboutTryDemo')}
+                </Link>
+                <a
+                  href="https://github.com/Safae26/multimodal-fake-news-detection#-setup--deployment-guide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                >
+                  {t('aboutQuickstartGuide')}
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 shadow-sm text-start space-y-4">
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white">
+                {t('aboutRoadmapTitle')}
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-350 leading-relaxed">
+                {t('aboutRoadmapSubtitle')}
+              </p>
+              <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-350">
+                {roadmapItems.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                {t('aboutVisibilityText')}
+              </p>
+
+              <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-350">
+                <p className="font-bold text-slate-700 dark:text-slate-250">{t('aboutRecognitionTitle')}</p>
+                <p>• {t('aboutRecognitionItem1')}</p>
+                <p>• {t('aboutRecognitionItem2')}</p>
+                <p>• {t('aboutRecognitionItem3')}</p>
               </div>
             </div>
           </section>
